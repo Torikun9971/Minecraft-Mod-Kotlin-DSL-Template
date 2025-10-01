@@ -152,6 +152,10 @@ fun extra(key: String): String {
     return extra[key].toString()
 }
 
+fun Provider<MinimalExternalModuleDependency>.classifier(name: String): String {
+    return "${this.get()}:$name"
+}
+
 fun canSpecifyUser(): Boolean {
     return hasProperty("mc_username") && hasProperty("mc_uuid")
 }
