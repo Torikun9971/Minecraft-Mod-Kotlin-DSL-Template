@@ -1,0 +1,18 @@
+[versions]
+minecraft = "1.20.1"
+forge = "47.4.0"
+forge-maven = "1.20.1-47.4.0"
+
+forgegradle = "[6.0,6.2)"
+parchment-forgegradle = "1.+"
+mixin = "0.8.7"
+mixin-plugin = "0.7.+"
+
+[libraries]
+forge = { group = "net.minecraftforge", name = "forge", version.ref = "forge-maven" }
+mixin = { group = "org.spongepowered", name = "mixin", version.ref = "mixin" }
+
+[plugins]
+forgegradle = { id = "net.minecraftforge.gradle", version.ref = "forgegradle" }
+parchment-forgegradle = { id = "org.parchmentmc.librarian.forgegradle", version.ref = "parchment-forgegradle" }
+mixin = { id = "org.spongepowered.mixin", version.ref = "mixin-plugin" }
