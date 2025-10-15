@@ -10,6 +10,9 @@ on:
       branch:
         description: 'Branch to build'
         required: true
+        type: choice
+        options:
+          - 1.21.1-neoforge
 
 jobs:
   build:
