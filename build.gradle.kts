@@ -41,13 +41,6 @@ minecraft {
             property("forge.logging.markers", "REGISTRIES")
             property("forge.logging.console.level", "debug")
 
-            if (canSpecifyUser()) {
-                args(
-                    "--username", prop("mc_username"),
-                    "--uuid", prop("mc_uuid")
-                )
-            }
-
             mods {
                 create(prop("mod_id")) {
                     source(sourceSets.main.get())
@@ -57,6 +50,13 @@ minecraft {
 
         create("client") {
             property("forge.enabledGameTestNamespaces", prop("mod_id"))
+
+            if (canSpecifyUser()) {
+                args(
+                    "--username", prop("mc_username"),
+                    "--uuid", prop("mc_uuid")
+                )
+            }
         }
 
         create("server") {
