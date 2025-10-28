@@ -37,18 +37,18 @@ minecraft {
             systemProperty("forge.logging.markers", "REGISTRIES")
             systemProperty("forge.logging.console.level", "debug")
 
+            modSource(project.sourceSets.main.get())
+        }
+
+        create("client") {
+            systemProperty("forge.enabledGameTestNamespaces", prop("mod_id"))
+
             if (canSpecifyUser()) {
                 arguments(
                     "--username", prop("mc_username"),
                     "--uuid", prop("mc_uuid")
                 )
             }
-
-            modSource(project.sourceSets.main.get())
-        }
-
-        create("client") {
-            systemProperty("forge.enabledGameTestNamespaces", prop("mod_id"))
         }
 
         create("server") {
