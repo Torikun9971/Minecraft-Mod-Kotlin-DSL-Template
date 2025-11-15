@@ -1,0 +1,41 @@
+name: Release Forge 1.20.1
+on: [workflow_dispatch]
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v5
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Validate Gradle Wrapper
+        uses: gradle/actions/wrapper-validation@v5
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v5
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew build --stacktrace
+
+      - name: Get Release Version
+        run: echo "RELEASE_VERSION=$(./gradlew printReleaseVersion -q)" >> $GITHUB_ENV
+
+      - name: Release on Github
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/libs/*.jar
+          tag_name: v${{ env.RELEASE_VERSION }}

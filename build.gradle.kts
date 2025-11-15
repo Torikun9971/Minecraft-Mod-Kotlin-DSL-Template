@@ -156,6 +156,10 @@ tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8"
 }
 
+tasks.register("printReleaseVersion") {
+    println(version)
+}
+
 publishing {
     publications {
         register<MavenPublication>("mavenJava") {
