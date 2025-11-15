@@ -16,7 +16,7 @@ version = "${prop("mod_version")}+$mcVersion-${prop("mod_loader").lowercase()}"
 group = prop("mod_group_id")
 
 base {
-    archivesName = prop("mod_file_name")
+    archivesName = prop("mod_filename")
 }
 
 java {
