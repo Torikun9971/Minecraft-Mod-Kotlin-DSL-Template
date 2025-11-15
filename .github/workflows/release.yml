@@ -34,6 +34,12 @@ jobs:
       - name: Get Release Version
         run: echo "RELEASE_VERSION=$(./gradlew printReleaseVersion -q)" >> $GITHUB_ENV
 
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v5
+        with:
+          name: v${{ env.RELEASE_VERSION }}
+          path: ./build/libs/
+
       - name: Release on Github
         uses: softprops/action-gh-release@v2
         with:
