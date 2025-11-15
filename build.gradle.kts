@@ -19,6 +19,17 @@ base {
     archivesName = prop("mod_filename")
 }
 
+repositories {
+
+}
+
+dependencies {
+    minecraft(libs.forge)
+    annotationProcessor(libs.mixin.classifier("processor"))
+
+
+}
+
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(prop("java_version"))
@@ -97,17 +108,6 @@ sourceSets {
     }
 }
 
-repositories {
-
-}
-
-dependencies {
-    minecraft(libs.forge)
-    annotationProcessor(libs.mixin.classifier("processor"))
-
-
-}
-
 tasks.named<ProcessResources>("processResources") {
     val replaceProperties: Map<String, String> = mapOf(
         "minecraft_version" to mcVersion,
@@ -150,6 +150,10 @@ tasks.named<Jar>("jar") {
     finalizedBy("reobfJar")
 }
 
+tasks.withType<JavaCompile>().configureEach {
+    options.encoding = "UTF-8"
+}
+
 publishing {
     publications {
         register<MavenPublication>("mavenJava") {
@@ -161,10 +165,6 @@ publishing {
             url = uri("file://${project.projectDir}/mcmodsrepo")
         }
     }
-}
-
-tasks.withType<JavaCompile>().configureEach {
-    options.encoding = "UTF-8"
 }
 
 fun prop(key: String): String {
