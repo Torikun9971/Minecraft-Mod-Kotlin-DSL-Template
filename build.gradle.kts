@@ -34,6 +34,8 @@ java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(prop("java_version"))
     }
+
+    withSourcesJar()
 }
 
 minecraft {
