@@ -1,5 +1,5 @@
 name: Release NeoForge 1.21.1
-on: [workflow_dispatch]
+on: [workflow_dispatch, pull_request]
 
 jobs:
   release:
