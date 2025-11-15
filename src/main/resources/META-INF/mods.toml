@@ -8,9 +8,9 @@ license="${mod_license}"
     version="${mod_version}"
     displayName="${mod_name}"
     logoFile="assets/${mod_id}/icon.png"
-#    updateJSONURL="{mod_update_json}"
-#    displayURL="{mod_homepage}"
-#    credits="{mod_credits}"
+    #updateJSONURL="{mod_update_json}"
+    #displayURL="{mod_homepage}"
+    #credits="{mod_credits}"
     authors="${mod_authors}"
     description='''${mod_description}'''
 
