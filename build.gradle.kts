@@ -16,7 +16,7 @@ repositories {
 }
 
 base {
-    archivesName = prop("mod_file_name")
+    archivesName = prop("mod_filename")
 }
 
 java {
