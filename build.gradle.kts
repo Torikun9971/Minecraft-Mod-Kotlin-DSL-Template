@@ -132,6 +132,10 @@ idea {
     }
 }
 
+tasks.register("printReleaseVersion") {
+    println(version)
+}
+
 publishing {
     publications {
         register<MavenPublication>("mavenJava") {
