@@ -11,12 +11,16 @@ val mcVersion = libs.versions.minecraft.get()
 version = "${prop("mod_version")}+$mcVersion-${prop("mod_loader").lowercase()}"
 group = prop("mod_group_id")
 
+base {
+    archivesName = prop("mod_filename")
+}
+
 repositories {
     mavenLocal()
 }
 
-base {
-    archivesName = prop("mod_filename")
+dependencies {
+    implementation(libs.neoforge)
 }
 
 java {
@@ -85,10 +89,6 @@ configurations {
     }
 }
 
-dependencies {
-    implementation(libs.neoforge)
-}
-
 tasks.named<Wrapper>("wrapper").configure {
     distributionType = Wrapper.DistributionType.BIN
 }
@@ -119,6 +119,17 @@ tasks.named<ProcessResources>("processResources") {
     }
 }
 
+tasks.withType<JavaCompile>().configureEach {
+    options.encoding = "UTF-8"
+}
+
+idea {
+    module {
+        isDownloadSources = true
+        isDownloadJavadoc = true
+    }
+}
+
 publishing {
     publications {
         register<MavenPublication>("mavenJava") {
@@ -129,17 +140,6 @@ publishing {
         maven {
             url = project.projectDir.resolve("repo").toURI()
         }
-    }
-}
-
-tasks.withType<JavaCompile>().configureEach {
-    options.encoding = "UTF-8"
-}
-
-idea {
-    module {
-        isDownloadSources = true
-        isDownloadJavadoc = true
     }
 }
 
