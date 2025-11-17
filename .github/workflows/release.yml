@@ -45,3 +45,13 @@ jobs:
         with:
           files: build/libs/*.jar
           tag_name: v${{ env.RELEASE_VERSION }}
+
+: #      - name: Release on CurseForge
+: #        run: ./gradlew curseforge
+: #        env:
+: #          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
+: #
+: #      - name: Release on Modrinth
+: #        run: ./gradlew modrinth
+: #        env:
+: #          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
