@@ -3,8 +3,13 @@ minecraft = "1.21.1"
 neoforge = "21.1.176"
 neogradle = "7.0.170"
 
+curseforgegradle = "1.1.28"
+minotaur = "2.+"
+
 [libraries]
 neoforge = { group = "net.neoforged", name = "neoforge", version.ref = "neoforge" }
 
 [plugins]
 neogradle = { id = "net.neoforged.gradle.userdev", version.ref = "neogradle" }
+curseforgegradle = { id = "net.darkhax.curseforgegradle", version.ref = "curseforgegradle" }
+minotaur = { id = "com.modrinth.minotaur", version.ref = "minotaur" }
