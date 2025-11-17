@@ -1,7 +1,7 @@
 [versions]
-neogradle = "7.0.170"
 minecraft = "1.21.1"
 neoforge = "21.1.176"
+neogradle = "7.0.170"
 
 [libraries]
 neoforge = { group = "net.neoforged", name = "neoforge", version.ref = "neoforge" }
