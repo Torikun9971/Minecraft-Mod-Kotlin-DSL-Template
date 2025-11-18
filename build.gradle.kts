@@ -162,6 +162,17 @@ tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8"
 }
 
+eclipse {
+    synchronizationTasks("genEclipseRuns")
+}
+
+idea {
+    module {
+        isDownloadSources = true
+        isDownloadJavadoc = true
+    }
+}
+
 val releaseTitle = "${prop("mod_name")} For ${prop("mod_loader")} $mcVersion"
 //val changelogFile = file("changelog.md")
 
