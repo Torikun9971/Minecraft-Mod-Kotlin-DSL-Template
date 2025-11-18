@@ -138,7 +138,7 @@ idea {
 }
 
 val releaseTitle = "${prop("mod_name")} For ${prop("mod_loader")} $mcVersion"
-//val changelogFile = file("/CHANGELOG.md")
+//val changelogFile = file("changelog.md")
 
 tasks.register("printReleaseVersion") {
     println(version)
