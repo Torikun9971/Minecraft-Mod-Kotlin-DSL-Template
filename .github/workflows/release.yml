@@ -34,6 +34,14 @@ jobs:
       - name: Get Release Version
         run: echo "RELEASE_VERSION=$(./gradlew printReleaseVersion -q)" >> $GITHUB_ENV
 
+#      - name: Checkout changelog
+#        uses: actions/checkout@v5
+#        with:
+#          ref: ${{ github.event.repository.default_branch }}
+#          clean: false
+#          sparse-checkout: changelog.md
+#          sparse-checkout-cone-mode: false
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v5
         with:
