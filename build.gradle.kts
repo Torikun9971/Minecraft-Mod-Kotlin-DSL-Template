@@ -51,6 +51,7 @@ minecraft {
 //    accessTransformer(file("src/main/resources/META-INF/accesstransformer.cfg"))
 
     copyIdeResources = true
+    generateRunFolders = true
 
     runs {
         configureEach {
