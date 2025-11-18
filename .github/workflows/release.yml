@@ -46,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v5
         with:
           name: v${{ env.RELEASE_VERSION }}
-          path: ./build/libs/
+          path: build/libs/
 
       - name: Release on Github
         uses: softprops/action-gh-release@v2
