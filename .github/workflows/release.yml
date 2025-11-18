@@ -43,8 +43,9 @@ jobs:
       - name: Release on Github
         uses: softprops/action-gh-release@v2
         with:
-          files: build/libs/*.jar
           tag_name: v${{ env.RELEASE_VERSION }}
+#          body_path: changelog.md
+          files: build/libs/*.jar
 
 #      - name: Release on CurseForge
 #        run: ./gradlew curseforge
