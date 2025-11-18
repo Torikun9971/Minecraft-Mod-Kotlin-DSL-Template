@@ -1,4 +1,5 @@
 import net.darkhax.curseforgegradle.TaskPublishCurseForge
+import org.gradle.accessors.dm.LibrariesForLibs
 import java.text.SimpleDateFormat
 import java.util.Date
 
@@ -28,7 +29,7 @@ repositories {
 }
 
 dependencies {
-    minecraft(libs.forge)
+    minecraft(libs.forge())
     annotationProcessor(libs.mixin.classifier("processor"))
 
 
@@ -118,7 +119,7 @@ tasks.named<ProcessResources>("processResources") {
     val replaceProperties: Map<String, String> = mapOf(
         "minecraft_version" to mcVersion,
         "minecraft_version_range" to prop("minecraft_version_range"),
-        "forge_version" to libs.versions.forge.asProvider().get(),
+        "forge_version" to libs.versions.forge.get(),
         "forge_version_range" to prop("forge_version_range"),
         "loader_version_range" to prop("loader_version_range"),
         "mod_id" to prop("mod_id"),
@@ -243,6 +244,18 @@ fun prop_list(key: String): List<String> {
 
 fun extra(key: String): String {
     return extra[key].toString()
+}
+
+fun LibrariesForLibs.forge(): String {
+    return buildString {
+        append("net.minecraftforge")
+        append(":")
+        append("forge")
+        append(":")
+        append(mcVersion)
+        append("-")
+        append(libs.versions.forge.get())
+    }
 }
 
 fun Provider<MinimalExternalModuleDependency>.classifier(name: String): String {
