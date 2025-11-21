@@ -200,10 +200,10 @@ tasks.register<TaskPublishCurseForge>("curseforge") {
     upload(prop("curseforge_id"), tasks.jar) {
         displayName = releaseTitle
 
-        addEnvironment(prop_list("curseforge_environments"))
-        addModLoader(prop_list("release_loaders"))
-        addJavaVersion(prop_list("curseforge_java_versions"))
-        addGameVersion(prop_list("release_minecraft_versions"))
+        addEnvironment(*prop_array("curseforge_environments"))
+        addModLoader(*prop_array("release_loaders"))
+        addJavaVersion(*prop_array("curseforge_java_versions"))
+        addGameVersion(*prop_array("release_minecraft_versions"))
 
         withAdditionalFile(sourcesJar())
         releaseType = prop("release_type")
@@ -248,6 +248,10 @@ modrinth {
 
 fun prop(key: String): String {
     return properties[key].toString()
+}
+
+fun prop_array(key: String): Array<String> {
+    return prop_list(key).toTypedArray()
 }
 
 fun prop_list(key: String): List<String> {
