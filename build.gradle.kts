@@ -166,7 +166,7 @@ tasks.register<TaskPublishCurseForge>("curseforge") {
 
         addEnvironment(*prop_array("curseforge_environments"))
         addModLoader(*prop_array("release_loaders"))
-        addJavaVersion(*prop_array("curseforge_java_versions"))
+        addJavaVersion(*prop_list("curseforge_java_versions").map { "Java $it" }.toTypedArray())
         addGameVersion(*prop_array("release_minecraft_versions"))
 
         withAdditionalFile(sourcesJar())
