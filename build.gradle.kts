@@ -198,6 +198,8 @@ publishing {
 tasks.register<TaskPublishCurseForge>("curseforge") {
     apiToken = System.getenv("CURSEFORGE_TOKEN")
 
+    disableVersionDetection()
+
     upload(prop("curseforge_id"), tasks.jar) {
         displayName = releaseTitle
 
