@@ -1,4 +1,5 @@
 import net.darkhax.curseforgegradle.TaskPublishCurseForge
+import net.darkhax.curseforgegradle.UploadArtifact
 import org.gradle.accessors.dm.LibrariesForLibs
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -205,15 +206,11 @@ tasks.register<TaskPublishCurseForge>("curseforge") {
         addJavaVersion(*prop_list("curseforge_java_versions").map { "Java $it" }.toTypedArray())
         addGameVersion(*prop_array("release_minecraft_versions"))
 
-        withAdditionalFile(sourcesJar())
-        releaseType = prop("release_type")
-
-        /**
-        if (changelogFile.exists()) {
-            changelog = changelogFile
-            changelogType = "markdown"
+        withAdditionalFile(sourcesJar()).run {
+            setCommonInfo()
         }
-        **/
+
+        setCommonInfo()
     }
 }
 **/
@@ -284,4 +281,17 @@ fun canSpecifyUser(): Boolean {
 
 fun sourcesJar(): File {
     return tasks.named("sourcesJar").get().outputs.files.singleFile
+}
+
+fun UploadArtifact.setCommonInfo() {
+    releaseType = prop("release_type")
+
+    /**
+    if (changelogFile.exists()) {
+        changelogType = "markdown"
+        changelog = changelogFile
+    }
+    **/
+
+    /** Dependencies **/
 }
