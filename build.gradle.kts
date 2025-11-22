@@ -286,9 +286,10 @@ fun sourcesJar(): File {
 fun UploadArtifact.setCommonInfo() {
     releaseType = prop("release_type")
 
+    changelogType = "markdown"
+    changelog = ""
     /**
     if (changelogFile.exists()) {
-        changelogType = "markdown"
         changelog = changelogFile
     }
     **/
