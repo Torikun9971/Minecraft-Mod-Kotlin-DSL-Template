@@ -56,11 +56,11 @@ jobs:
           files: build/libs/*.jar
 
 #      - name: Release on CurseForge
-#        run: ./gradlew curseforge
+#        run: ./gradlew curseforge --stacktrace
 #        env:
 #          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
 #
 #      - name: Release on Modrinth
-#        run: ./gradlew modrinth
+#        run: ./gradlew modrinth --stacktrace
 #        env:
 #          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
