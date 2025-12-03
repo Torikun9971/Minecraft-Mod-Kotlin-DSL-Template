@@ -174,7 +174,7 @@ idea {
     }
 }
 
-val releaseTitle = "${prop("mod_name")} For ${prop("mod_loader")} $mcVersion"
+val releaseTitle = "${prop("mod_name")} ${prop("mod_version")} for ${prop("mod_loader")} $mcVersion"
 //val changelogFile = file("changelog.md")
 
 tasks.register("printReleaseVersion") {
