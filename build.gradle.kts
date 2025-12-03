@@ -103,6 +103,8 @@ tasks.named<Wrapper>("wrapper").configure {
 
 tasks.named<ProcessResources>("processResources") {
     val replaceProperties = mapOf(
+            "project_group" to project.group,
+            "project_version" to project.version,
             "minecraft_version" to mcVersion,
             "minecraft_version_range" to prop("minecraft_version_range"),
             "neoforge_version" to libs.versions.neoforge.get(),
