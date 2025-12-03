@@ -2,12 +2,12 @@ import net.darkhax.curseforgegradle.TaskPublishCurseForge
 import net.darkhax.curseforgegradle.UploadArtifact
 
 plugins {
+    `java-library`
     eclipse
     idea
-    `java-library`
-    `maven-publish`
     alias(libs.plugins.neogradle)
 
+    `maven-publish`
     alias(libs.plugins.curseforgegradle)
     alias(libs.plugins.minotaur)
 }
