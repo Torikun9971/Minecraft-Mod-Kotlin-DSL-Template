@@ -5,7 +5,7 @@ license="${mod_license}"
 
 [[mods]]
     modId="${mod_id}"
-    version="${mod_version}"
+    version="${project_version}"
     displayName="${mod_name}"
     logoFile="assets/${mod_id}/icon.png"
     #updateJSONURL="{mod_update_json}"
