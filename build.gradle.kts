@@ -7,11 +7,11 @@ import java.util.Date
 plugins {
     eclipse
     idea
-    `maven-publish`
     alias(libs.plugins.forgegradle)
     alias(libs.plugins.parchment.forgegradle)
     alias(libs.plugins.mixin)
 
+    `maven-publish`
     alias(libs.plugins.curseforgegradle)
     alias(libs.plugins.minotaur)
 }
