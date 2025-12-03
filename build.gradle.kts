@@ -118,7 +118,9 @@ sourceSets {
 }
 
 tasks.named<ProcessResources>("processResources") {
-    val replaceProperties: Map<String, String> = mapOf(
+    val replaceProperties = mapOf(
+        "project_group" to project.group,
+        "project_version" to project.version,
         "minecraft_version" to mcVersion,
         "minecraft_version_range" to prop("minecraft_version_range"),
         "forge_version" to libs.versions.forge.get(),
