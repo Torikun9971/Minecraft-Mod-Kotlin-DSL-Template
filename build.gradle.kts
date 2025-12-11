@@ -135,7 +135,7 @@ tasks.named<ProcessResources>("processResources") {
 //        "mod_homepage" to prop("mod_homepage"),
 //        "mod_credits" to prop("mod_credits"),
         "mod_authors" to prop("mod_authors"),
-        "mod_description" to prop("mod_description"),
+        "mod_description" to prop("mod_description")
     )
 
     inputs.properties(replaceProperties)
