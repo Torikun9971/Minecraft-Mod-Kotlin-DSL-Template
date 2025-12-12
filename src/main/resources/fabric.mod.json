@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "${mod_id}",
+	"name": "${mod_name}",
+	"version": "${project_version}",
+	"license": "All Rights Reserved",
+	"icon": "assets/${mod_id}/icon.png",
+	"contact": {
+
+	},
+	"authors": [
+		"Me!"
+	],
+	"contributors": [
+
+	],
+	"description": "It's an example mod!",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"${project_group}.ExampleMod"
+		]
+	},
+	"mixins": [
+
+	],
+	"depends": {
+		"java": ">=${java_version}",
+		"minecraft": ">=${minecraft_version}",
+		"fabricloader": ">=${fabric_version}"
+	},
+	"suggests": {
+
+	},
+	"custom": {
+
+	}
+}
