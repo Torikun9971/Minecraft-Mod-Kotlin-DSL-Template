@@ -6,7 +6,7 @@ Each template is available in its respective branch.
 
 ## Mappings
 
-This template uses a combination of Mojang Mappings (Official) and Parchment Mappings.
+This template uses a combination of Mojang Mappings (Official) and Parchment Mappings.  
 Since Mojang Mappings is not provided under a free license, you should review the license once.
 
 - [Microsoft Services Agreement](https://www.microsoft.com/servicesagreement)
@@ -15,5 +15,5 @@ Since Mojang Mappings is not provided under a free license, you should review th
 
 ## License
 
-This template is provided under the Creative Commons Zero v1.0 Universal license.
+This template is provided under the Creative Commons Zero v1.0 Universal license.  
 However, please note that the **.idea/icon.png file** (the Mod Loader icon) is an exception.
