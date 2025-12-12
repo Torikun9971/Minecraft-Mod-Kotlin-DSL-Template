@@ -5,11 +5,11 @@ import java.text.SimpleDateFormat
 import java.util.Date
 
 plugins {
-    eclipse
-    idea
     alias(libs.plugins.forgegradle)
     alias(libs.plugins.parchment.forgegradle)
     alias(libs.plugins.mixin)
+    eclipse
+    idea
 
     `maven-publish`
     alias(libs.plugins.curseforgegradle)
