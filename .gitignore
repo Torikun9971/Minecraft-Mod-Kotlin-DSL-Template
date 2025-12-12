@@ -11,10 +11,11 @@ classes/
 
 # idea
 
-.idea/
+.idea/*
 *.iml
 *.ipr
 *.iws
+!.idea/icon.png
 
 # vscode
 
