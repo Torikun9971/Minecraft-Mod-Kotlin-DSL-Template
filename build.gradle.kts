@@ -3,9 +3,9 @@ import net.darkhax.curseforgegradle.UploadArtifact
 
 plugins {
     `java-library`
+    alias(libs.plugins.neogradle)
     eclipse
     idea
-    alias(libs.plugins.neogradle)
 
     `maven-publish`
     alias(libs.plugins.curseforgegradle)
