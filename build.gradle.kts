@@ -158,7 +158,9 @@ val releaseTitle = "${prop("mod_name")} ${prop("mod_version")} for ${prop("mod_l
 //val changelogFile = file("changelog.md")
 
 tasks.register("printReleaseVersion") {
-    println(version)
+    doLast {
+        println(version)
+    }
 }
 
 publishing {
