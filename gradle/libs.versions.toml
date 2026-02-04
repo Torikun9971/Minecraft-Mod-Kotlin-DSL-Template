@@ -3,7 +3,7 @@ minecraft = "1.21.4"
 fabric = "0.18.2"
 parchment-mappings = "2025.03.23"
 
-fabric-loom = "1.14-SNAPSHOT"
+fabric-loom = "1.15-SNAPSHOT"
 
 fabric-api = "0.118.0+1.21.4"
 
