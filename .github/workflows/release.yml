@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup JDK 21
         uses: actions/setup-java@v5
@@ -20,19 +20,16 @@ jobs:
           cache: 'gradle'
 
       - name: Validate Gradle Wrapper
-        uses: gradle/actions/wrapper-validation@v5
+        uses: gradle/actions/wrapper-validation@v6
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v5
+        uses: gradle/actions/setup-gradle@v6
 
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
       - name: Build with Gradle
         run: ./gradlew build --stacktrace
-
-      - name: Get Release Version
-        run: echo "RELEASE_VERSION=$(./gradlew printReleaseVersion -q)" >> $GITHUB_ENV
 
 #      - name: Checkout changelog
 #        uses: actions/checkout@v5
@@ -43,24 +40,14 @@ jobs:
 #          sparse-checkout-cone-mode: false
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: v${{ env.RELEASE_VERSION }}
           path: build/libs/
 
-      - name: Release on Github
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: v${{ env.RELEASE_VERSION }}
-#          body_path: changelog.md
-          files: build/libs/*.jar
-
-#      - name: Release on CurseForge
-#        run: ./gradlew curseforge --stacktrace
-#        env:
-#          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
-#
-#      - name: Release on Modrinth
-#        run: ./gradlew modrinth --stacktrace
-#        env:
-#          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+      - name: Release Mods
+        run: ./gradlew publishMods --stacktrace
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}

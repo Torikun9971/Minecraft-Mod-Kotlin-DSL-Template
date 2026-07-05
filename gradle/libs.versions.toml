@@ -4,14 +4,11 @@ neoforge = "21.1.235"
 parchment-mappings = "2024.11.17"
 
 neogradle = "2.+"
-
-curseforgegradle = "1.1.28"
-minotaur = "2.+"
+mod-publish-plugin = "2.1.1"
 
 [libraries]
 neoforge = { group = "net.neoforged", name = "neoforge", version.ref = "neoforge" }
 
 [plugins]
 neogradle = { id = "net.neoforged.moddev", version.ref = "neogradle" }
-curseforgegradle = { id = "net.darkhax.curseforgegradle", version.ref = "curseforgegradle" }
-minotaur = { id = "com.modrinth.minotaur", version.ref = "minotaur" }
+mod-publish-plugin = { id = "me.modmuss50.mod-publish-plugin", version.ref = "mod-publish-plugin" }
