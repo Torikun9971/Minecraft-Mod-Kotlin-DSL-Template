@@ -1,14 +1,12 @@
 [versions]
 minecraft = "1.20.1"
 forge = "47.4.0"
-
 forgegradle = "6.+"
 parchment-forgegradle = "1.+"
 mixin = "0.8.7"
 mixin-plugin = "0.7.+"
 
-curseforgegradle = "1.1.28"
-minotaur = "2.+"
+mod-publish-plugin = "2.1.1"
 
 [libraries]
 mixin = { group = "org.spongepowered", name = "mixin", version.ref = "mixin" }
@@ -18,5 +16,4 @@ forgegradle = { id = "net.minecraftforge.gradle", version.ref = "forgegradle" }
 parchment-forgegradle = { id = "org.parchmentmc.librarian.forgegradle", version.ref = "parchment-forgegradle" }
 mixin = { id = "org.spongepowered.mixin", version.ref = "mixin-plugin" }
 
-curseforgegradle = { id = "net.darkhax.curseforgegradle", version.ref = "curseforgegradle" }
-minotaur = { id = "com.modrinth.minotaur", version.ref = "minotaur" }
+mod-publish-plugin = { id = "me.modmuss50.mod-publish-plugin", version.ref = "mod-publish-plugin" }
