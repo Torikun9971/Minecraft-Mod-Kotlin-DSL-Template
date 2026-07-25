@@ -173,12 +173,14 @@ publishing {
 /**
 publishMods {
     file = modJar()
+    version = "${project.version}"
+
     changelog = changelogFile.readText()
 
     modLoaders.add("neoforge")
     type = STABLE
 
-    additionalFiles.files += sourcesJar()
+    additionalFiles.from(sourcesJar())
 
     github {
         accessToken = System.getenv("GITHUB_TOKEN")
@@ -186,7 +188,8 @@ publishMods {
         repository = "test/example"
         commitish = "main"
 
-        displayName = "v" + version
+        tagName = "v" + project.version
+        displayName = tagName
     }
 
     curseforge {
